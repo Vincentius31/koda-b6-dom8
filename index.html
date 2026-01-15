@@ -2,20 +2,16 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Konversi Suhu Celsius</title>
+  <title>Konversi Suhu</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <h2>Konversi Suhu dari Celsius</h2>
-
+    <h2>Konversi Suhu</h2>
     <form id="formSuhu">
-    <input type="number" id="inputCelsius" placeholder="Masukkan suhu (°C)" required>
-    <button type="submit">Konversi</button>
+        <input type="number" id="inputCelsius" placeholder="Masukkan suhu (°C)" required>
+        <button type="submit">Konversi</button>
     </form>
-
     <h3>Histori Konversi</h3>
-
     <table>
         <thead>
             <tr>
@@ -56,7 +52,6 @@
       `;
 
       historyTable.appendChild(tr);
-      form.reset();
     });
   </script>
 
