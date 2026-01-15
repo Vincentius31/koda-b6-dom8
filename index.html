@@ -1,29 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program Konversi Suhu dengan Event</title>
+  <meta charset="UTF-8">
+  <title>Konversi Suhu Celsius</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Konversi Suhu dari Celcius</h2>
+
+    <h2>Konversi Suhu dari Celsius</h2>
+
     <form id="formSuhu">
-        <input type="number" name="suhuCelcius" id="inputCelcius" placeholder="Masukan suhu dalam celcius">
+    <input type="number" id="inputCelsius" placeholder="Masukkan suhu (°C)" required>
+    <button type="submit">Konversi</button>
     </form>
+
     <h3>Histori Konversi</h3>
+
     <table>
         <thead>
             <tr>
                 <th>No</th>
-                <th>Celcius</th>
+                <th>Celsius</th>
                 <th>Fahrenheit</th>
                 <th>Reamur</th>
                 <th>Kelvin</th>
             </tr>
         </thead>
+        <tbody id="historyTable"></tbody>
     </table>
-    <script>
-        
-    </script>
+
+  <script>
+    const form = document.getElementById("formSuhu");
+    const inputCelsius = document.getElementById("inputCelsius");
+    const historyTable = document.getElementById("historyTable");
+
+    let no = 1;
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const celsius = parseFloat(inputCelsius.value);
+
+      const fahrenheit = (celsius * 9/5) + 32;
+      const reamur = celsius * 4/5;
+      const kelvin = celsius + 273.15;
+
+      const tr = document.createElement("tr");
+
+      tr.innerHTML = `
+        <td>${no++}</td>
+        <td>${celsius.toFixed(2)}</td>
+        <td>${fahrenheit.toFixed(2)}</td>
+        <td>${reamur.toFixed(2)}</td>
+        <td>${kelvin.toFixed(2)}</td>
+      `;
+
+      historyTable.appendChild(tr);
+      form.reset();
+    });
+  </script>
+
 </body>
 </html>
