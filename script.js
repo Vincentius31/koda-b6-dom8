@@ -9,15 +9,15 @@ $(document).ready(function () {
         historyTable.empty(); // historyTable.innerHTML = "";
 
         $.each(historyData, function (index, item) {
-            const $tr = $("<tr>");
+            const tr = $("<tr>");
 
-            $("<td>").text(index + 1).appendTo($tr);
-            $("<td>").text(item.celsius).appendTo($tr);
-            $("<td>").text(item.fahrenheit).appendTo($tr);
-            $("<td>").text(item.reamur).appendTo($tr);
-            $("<td>").text(item.kelvin).appendTo($tr);
+            $("<td>").text(index + 1).appendTo(tr);
+            $("<td>").text(item.celsius).appendTo(tr);
+            $("<td>").text(item.fahrenheit).appendTo(tr);
+            $("<td>").text(item.reamur).appendTo(tr);
+            $("<td>").text(item.kelvin).appendTo(tr);
 
-            historyTable.append($tr);
+            historyTable.append(tr);
         });
     }
 
