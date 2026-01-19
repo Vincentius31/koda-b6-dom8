@@ -1,12 +1,12 @@
 $(document).ready(function () {
-    const $form = $("#formSuhu");
-    const $inputCelsius = $("#inputCelsius");
-    const $historyTable = $("#historyTable");
+    const form = $("#formSuhu");
+    const inputCelsius = $("#inputCelsius");
+    const historyTable = $("#historyTable");
 
     let historyData = JSON.parse(localStorage.getItem("historySuhu")) || [];
 
     function renderTable() {
-        $historyTable.empty(); // historyTable.innerHTML = "";
+        historyTable.empty(); // historyTable.innerHTML = "";
 
         $.each(historyData, function (index, item) {
             const $tr = $("<tr>");
@@ -17,16 +17,16 @@ $(document).ready(function () {
             $("<td>").text(item.reamur).appendTo($tr);
             $("<td>").text(item.kelvin).appendTo($tr);
 
-            $historyTable.append($tr);
+            historyTable.append($tr);
         });
     }
 
     renderTable();
 
-    $form.on("submit", function (e) { //form.addEventListener("submit", function (event)
+    form.on("submit", function (e) { //form.addEventListener("submit", function (event)
         e.preventDefault();
 
-        const celsius = parseFloat($inputCelsius.val()); //const celsius = parseFloat(inputCelsius.value)
+        const celsius = parseFloat(inputCelsius.val()); //const celsius = parseFloat(inputCelsius.value)
         if (isNaN(celsius)) return;
 
         const data = {
@@ -42,6 +42,6 @@ $(document).ready(function () {
 
         renderTable();
 
-        $inputCelsius.val("");
+        inputCelsius.val("");
     });
 });
